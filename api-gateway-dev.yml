@@ -7,17 +7,17 @@ server:
 spring:
   application:
     name: api-gateway
-    cloud:
-      gateway:
-        routes:
-          - id: usuario-service
-            uri: lb://usuario-service
-            predicates:
-              - Path=/api/usuarios/**
-          - id: licencia-service
-            uri: lb://licencia-service
-            predicates:
-              - Path=/api/licencia/**
+  cloud:
+    gateway:
+      routes:
+        - id: usuario-service
+          uri: lb://usuario-service
+          predicates:
+            - Path=/api/usuarios/**
+        - id: licencia-service
+          uri: lb://licencia-service
+          predicates:
+            - Path=/api/licencia/**
 
 management:
   auditevents:
