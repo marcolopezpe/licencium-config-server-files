@@ -17,8 +17,7 @@ spring:
         - id: licencia-service
           uri: lb://licencia-service
           predicates:
-            - Path=/api/licencias/**
-            - Path=/api/clientes/**
+            - Path=/api/licencias/**, /api/clientes/**
       globalcors:
         cors-configurations:
           '[/**]':
