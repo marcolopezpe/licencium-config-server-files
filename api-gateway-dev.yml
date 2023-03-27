@@ -21,7 +21,7 @@ spring:
         - id: oauth-server
           uri: lb://oauth-server
           predicates:
-            - Path=/oauth/**
+            - Path=/api/security/**
       globalcors:
         cors-configurations:
           '[/**]':
