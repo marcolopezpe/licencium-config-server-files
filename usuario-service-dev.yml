@@ -16,10 +16,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-  config:
-    jwt:
-      accessTokenValidity: 1
-      privateKey: df4a126837db41533dcc32fb0c56dca30a079b7000bb47fb15f928776584e1270d980554167ac20470fcd4ad4a971041
 
 management:
   auditevents:
