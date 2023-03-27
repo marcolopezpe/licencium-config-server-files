@@ -1,0 +1,42 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:8765}
+
+  encrypt:
+    key: ${ENCRYPT.KEY:licencium-secret-key}
+
+spring:
+  application:
+    name: api-gateway
+    cloud:
+      gateway:
+        routes:
+          - id: usuario-service
+            uri: lb://usuario-service
+            predicates:
+              - Path=/api/usuario/**
+          - id: licencia-service
+            uri: lb://licencia-service
+            predicates:
+              - Path=/api/licencia/**
+
+management:
+  auditevents:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    env:
+      enabled: true
