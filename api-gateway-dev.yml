@@ -19,6 +19,15 @@ spring:
           predicates:
             - Path=/api/licencias/**
             - Path=/api/clientes/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+            allowCredentials: true
+            exposedHeaders: 'Authorization, Content-Type, Accept, X-Requested-With, remember-me, Access-Control-Allow-Origin, Access-Control-Allow-Credentials'
+            maxAge: 3600
 
 management:
   auditevents:
