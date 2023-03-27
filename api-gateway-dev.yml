@@ -18,11 +18,19 @@ spring:
           uri: lb://licencia-service
           predicates:
             - Path=/api/licencias/**, /api/clientes/**
+        - id: oauth-server
+          uri: lb://oauth-server
+          predicates:
+            - Path=/api/security/**
       globalcors:
         cors-configurations:
           '[/**]':
             allowedOrigins: '*'
             allowedMethods: GET,POST,PUT,DELETE,OPTIONS
+
+config:
+  security:
+    privateKey: 3a27f63a56e28002f3d35b85aaa716d596039fbc942515f38f1e25d7100eb412
 
 management:
   auditevents:
