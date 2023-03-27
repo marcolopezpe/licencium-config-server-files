@@ -1,5 +1,5 @@
 server:
-  port: ${CUSTOM.SERVER.PORT:8082}
+  port: ${CUSTOM.SERVER.PORT:8002}
 
   encrypt:
     key: ${ENCRYPT.KEY:licencium-secret-key}
