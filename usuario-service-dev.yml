@@ -1,20 +1,40 @@
 server:
-  port: 8081
+  port: ${CUSTOM.SERVER.PORT:8081}
 
   encrypt:
-    key: licencium-secret-key
-
-
+    key: ${ENCRYPT.KEY:licencium-secret-key}
 
 spring:
   application:
     name: USUARIO-SERVICE
   datasource:
-    url: jdbc:postgresql://localhost:15432/db_usuario
-    username: postgres
-    password: PGUsuario111
-    driver-class-name: org.postgresql.Driver
+    url: '{cipher}a814eda5fa2f3dfac11e3bbcd492fc6566eb07f5dc640245488c777d3a68f35930a315355ac755ba0ffce7cf4db1ad6f0cc9d4bee6b8a066ce79ffa2117b2dcb'
+    username: '{cipher}a22e6e73f963941d1ff3b5feed48da91c712e82696bd5d9c028945b66c5743b6'
+    password: '{cipher}d2cb3b3df2613e6a92b7621c51855773a52ce99b3dedc2e14d025cc1fd2b6dee'
+    driver-class-name: '{cipher}fa6fa36e44df9ba10d99b650f840f437a9b2cf9976a1ff8b1c753acd56d8902370d5dd89c6c1a16278aadd26844ae39b'
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+management:
+  auditevents:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    env:
+      enabled: true
