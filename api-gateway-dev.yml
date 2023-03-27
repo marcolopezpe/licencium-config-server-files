@@ -17,7 +17,7 @@ spring:
         - id: licencia-service
           uri: lb://licencia-service
           predicates:
-            - Path=/api/licencia/**
+            - Path=/api/licencias/**
 
 management:
   auditevents:
