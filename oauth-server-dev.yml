@@ -1,16 +1,16 @@
 server:
-  port: ${CUSTOM.SERVER.PORT:8002}
+  port: ${CUSTOM.SERVER.PORT:8777}
 
 encrypt:
   key: ${ENCRYPT.KEY:licencium-secret-key}
 
 spring:
   application:
-    name: licencia-service
+    name: oauth-server
   datasource:
-    url: '{cipher}12d2d2aebbb916e21f555af5e6367d1973e4a8e23eab3462cfd33980af2df865bad4c6b8488722632d1d7ee436dd5910f226b35775532dc4f1d8f624f4b0d8c3'
+    url: '{cipher}8512df92b5dd3a1b01aa449cb2957cea3e786e742372891ea5b811f36f1da5868a473ec25066afdf11a67251a1d5b248d2f65fe3349194e42f2fca1bf75b43d1'
     username: '{cipher}a22e6e73f963941d1ff3b5feed48da91c712e82696bd5d9c028945b66c5743b6'
-    password: '{cipher}75d2949566d98f7dc1cc2dd395c60e606515f2c7f8e6905cabfcfc5c963b819c'
+    password: '{cipher}d2cb3b3df2613e6a92b7621c51855773a52ce99b3dedc2e14d025cc1fd2b6dee'
     driver-class-name: '{cipher}fa6fa36e44df9ba10d99b650f840f437a9b2cf9976a1ff8b1c753acd56d8902370d5dd89c6c1a16278aadd26844ae39b'
   jpa:
     show-sql: true

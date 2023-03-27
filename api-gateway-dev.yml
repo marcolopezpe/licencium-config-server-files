@@ -1,8 +1,8 @@
 server:
   port: ${CUSTOM.SERVER.PORT:8765}
 
-  encrypt:
-    key: ${ENCRYPT.KEY:licencium-secret-key}
+encrypt:
+  key: ${ENCRYPT.KEY:licencium-secret-key}
 
 spring:
   application:
