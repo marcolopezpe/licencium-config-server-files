@@ -13,7 +13,7 @@ spring:
           - id: usuario-service
             uri: lb://usuario-service
             predicates:
-              - Path=/api/usuario/**
+              - Path=/api/usuarios/**
           - id: licencia-service
             uri: lb://licencia-service
             predicates:
