@@ -19,7 +19,7 @@ spring:
         - id: licencia-service
           uri: lb://licencia-service
           predicates:
-            - Path=/api/licencia/**, /api/cliente/**
+            - Path=/api/licencia/**
           filters:
             - StripPrefix=2
         - id: oauth-server

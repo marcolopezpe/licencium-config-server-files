@@ -19,7 +19,7 @@ spring:
 
 config:
   jwt:
-    accessTokenValidity: 10
+    accessTokenValidity: 3600
     privateKey: 3a27f63a56e28002f3d35b85aaa716d596039fbc942515f38f1e25d7100eb412
 
 management:
