@@ -13,11 +13,15 @@ spring:
         - id: usuario-service
           uri: lb://usuario-service
           predicates:
-            - Path=/api/usuarios/**
+            - Path=/api/usuario/**
+          filters:
+            - StripPrefix=2
         - id: licencia-service
           uri: lb://licencia-service
           predicates:
-            - Path=/api/licencias/**, /api/clientes/**
+            - Path=/api/licencia/**, /api/cliente/**
+          filters:
+            - StripPrefix=2
         - id: oauth-server
           uri: lb://oauth-server
           predicates:
