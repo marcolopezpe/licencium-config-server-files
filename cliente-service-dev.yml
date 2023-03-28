@@ -1,0 +1,40 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:8003}
+
+encrypt:
+  key: ${ENCRYPT.KEY:licencium-secret-key}
+
+spring:
+  application:
+    name: cliente-service
+  datasource:
+    url: '{cipher}45a32397ca901106469b8f1c763016fc41d7c03e7afcb9d6a4907e7b3c55fcb9fef658694d4e969dcd5d6a909654b008eb2e47dbf1a66786dca27719cf3b35bf'
+    username: '{cipher}a22e6e73f963941d1ff3b5feed48da91c712e82696bd5d9c028945b66c5743b6'
+    password: '{cipher}b107bc84e371f7703e6bd52126601d55d40a529db812450fe3f50251af3aa7c7'
+    driver-class-name: '{cipher}fa6fa36e44df9ba10d99b650f840f437a9b2cf9976a1ff8b1c753acd56d8902370d5dd89c6c1a16278aadd26844ae39b'
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+management:
+  auditevents:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    env:
+      enabled: true
