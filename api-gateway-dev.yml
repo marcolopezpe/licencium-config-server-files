@@ -22,6 +22,8 @@ spring:
           uri: lb://oauth-server
           predicates:
             - Path=/api/security/**
+          filters:
+            - StripPrefix=2
       globalcors:
         cors-configurations:
           '[/**]':
