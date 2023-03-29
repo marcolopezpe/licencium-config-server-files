@@ -1,0 +1,46 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:8005}
+
+encrypt:
+  key: ${ENCRYPT.KEY:licencium-secret-key}
+
+spring:
+  application:
+    name: audit-service
+  data.mongodb:
+    uri: ${MONGODB.URI:mongodb://root@password1234@localhost:27017/db_audit?authSource=admin}
+    database: ${MONGODB.DATABASE:db_audit}
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: audit-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        enable.auto.commit: false
+        spring.json.trusted.packages: *
+    topic:
+      name: usuario_topics
+
+management:
+  auditevents:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    env:
+      enabled: true
