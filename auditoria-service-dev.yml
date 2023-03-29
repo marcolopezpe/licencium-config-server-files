@@ -11,9 +11,9 @@ spring:
     uri: mongodb://root:password1234@localhost:27017/db_audit?authSource=admin
     database: db_audit
   kafka:
-    bootstrap-servers: localhost:29092
     consumer:
-      group-id: auditoria-group
+      bootstrap-servers: localhost:29092
+      group-id: auditoriagroup
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
