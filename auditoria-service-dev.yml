@@ -6,14 +6,14 @@ encrypt:
 
 spring:
   application:
-    name: audit-service
+    name: auditoria-service
   data.mongodb:
     uri: ${MONGODB.URI:mongodb://root@password1234@localhost:27017/db_audit?authSource=admin}
     database: ${MONGODB.DATABASE:db_audit}
   kafka:
     bootstrap-servers: localhost:29092
     consumer:
-      group-id: audit-service
+      group-id: auditoria-service
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
