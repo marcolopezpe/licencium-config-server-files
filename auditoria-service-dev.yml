@@ -12,7 +12,9 @@ spring:
     database: db_audit
 
 kafka:
-  topic: usuarios
+  topic:
+    usuarios: usuarios
+    licencias: licencias
   servers: localhost:29092, localhost:29093, localhost:29094
 
 management:
