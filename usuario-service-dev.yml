@@ -16,19 +16,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-  #kafka:
-  #  bootstrap-servers: localhost:29092
-  #  producer:
-  #    key-serializer: org.apache.kafka.common.serialization.StringSerializer
-  #    #value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-  #    value-serializer: org.apache.kafka.common.serialization.StringSerializer
-  #  topic:
-  #    name: usuario_topics
 
 kafka:
   topic: usuarios
-  server: localhost
-  port: 29092
+  servers: localhost:29092, localhost:29093, localhost:29094
 
 management:
   endpoints:

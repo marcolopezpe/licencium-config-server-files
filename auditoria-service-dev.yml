@@ -10,40 +10,17 @@ spring:
   data.mongodb:
     uri: mongodb://root:password1234@localhost:27017/db_audit?authSource=admin
     database: db_audit
-  kafka:
-    bootstrap-servers: localhost:29092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    consumer:
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      #value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      group-id: auditoria
-      auto-offset-reset: earliest
-      properties:
-        spring.json.trusted.packages: '*'
-    topic:
-      name: usuario_topics
+
+kafka:
+  topic: usuarios
+  servers: localhost:29092, localhost:29093, localhost:29094
 
 management:
-  auditevents:
-    enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
-  endpoint:
-    health:
-      group:
-        custom:
-          include: diskSpace, ping, memory, mem
-          show-component: always
-          show-details: always
   info:
-    env:
-      enabled: true
-  health:
     env:
       enabled: true
