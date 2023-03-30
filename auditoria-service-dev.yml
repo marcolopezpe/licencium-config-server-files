@@ -12,12 +12,15 @@ spring:
     database: db_audit
   kafka:
     bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
-      group-id: auditoria
-      auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: auditoria
+      auto-offset-reset: earliest
       properties:
         spring.json.trusted.packages: '*'
     topic:
