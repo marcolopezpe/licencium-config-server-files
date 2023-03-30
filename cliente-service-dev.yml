@@ -18,23 +18,11 @@ spring:
       ddl-auto: none
 
 management:
-  auditevents:
-    enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
-  endpoint:
-    health:
-      group:
-        custom:
-          include: diskSpace, ping, memory, mem
-          show-component: always
-          show-details: always
   info:
-    env:
-      enabled: true
-  health:
     env:
       enabled: true

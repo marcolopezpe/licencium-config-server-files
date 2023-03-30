@@ -40,24 +40,16 @@ resilience4j:
         sliding-window-size: 10
         sliding-window-type: COUNT_BASED
 
+kafka:
+  topic: licencias
+  servers: localhost:29092, localhost:29093, localhost:29094
+
 management:
-  auditevents:
-    enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
-  endpoint:
-    health:
-      group:
-        custom:
-          include: diskSpace, ping, memory, mem
-          show-component: always
-          show-details: always
   info:
-    env:
-      enabled: true
-  health:
     env:
       enabled: true
