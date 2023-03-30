@@ -16,33 +16,26 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-  kafka:
-    bootstrap-servers: localhost:29092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      #value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    topic:
-      name: usuario_topics
+  #kafka:
+  #  bootstrap-servers: localhost:29092
+  #  producer:
+  #    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #    #value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  #    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #  topic:
+  #    name: usuario_topics
+
+kafka:
+  topic: usuarios
+  server: localhost
+  port: 29092
 
 management:
-  auditevents:
-    enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
-  endpoint:
-    health:
-      group:
-        custom:
-          include: diskSpace, ping, memory, mem
-          show-component: always
-          show-details: always
   info:
-    env:
-      enabled: true
-  health:
     env:
       enabled: true
