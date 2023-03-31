@@ -23,23 +23,11 @@ config:
     privateKey: 3a27f63a56e28002f3d35b85aaa716d596039fbc942515f38f1e25d7100eb412
 
 management:
-  auditevents:
-    enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /actuator
-  endpoint:
-    health:
-      group:
-        custom:
-          include: diskSpace, ping, memory, mem
-          show-component: always
-          show-details: always
   info:
-    env:
-      enabled: true
-  health:
     env:
       enabled: true

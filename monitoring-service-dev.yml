@@ -7,3 +7,13 @@ encrypt:
 spring:
   application:
     name: monitoring-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  info:
+    env:
+      enabled: true
