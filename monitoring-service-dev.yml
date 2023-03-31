@@ -1,0 +1,9 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:8889}
+
+encrypt:
+  key: ${ENCRYPT.KEY:licencium-secret-key}
+
+spring:
+  application:
+    name: monitoring-service
