@@ -26,7 +26,8 @@ logging:
     org.hibernate.SQL: TRACE
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-  path: ${LOG.FILE.NAME:cliente-service.log}
+  file:
+    name: ${LOG.FILE.NAME:cliente-service.log}
 
 management:
   endpoints:
