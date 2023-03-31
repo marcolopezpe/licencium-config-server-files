@@ -8,6 +8,10 @@ spring:
   application:
     name: monitoring-service
 
+logging:
+  file:
+    name: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:monitoring-service.log}
+
 management:
   endpoints:
     web:
@@ -17,3 +21,6 @@ management:
   info:
     env:
       enabled: true
+  endpoint:
+    logfile:
+      external_file: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:monitoring-service.log}

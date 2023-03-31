@@ -18,6 +18,10 @@ kafka:
     clientes: clientes
   servers: localhost:29092, localhost:29093, localhost:29094
 
+logging:
+  file:
+    name: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:auditoria-service.log}
+
 management:
   endpoints:
     web:
@@ -27,3 +31,6 @@ management:
   info:
     env:
       enabled: true
+  endpoint:
+    logfile:
+      external_file: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:auditoria-service.log}

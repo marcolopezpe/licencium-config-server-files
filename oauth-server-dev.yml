@@ -22,6 +22,14 @@ config:
     accessTokenValidity: 3600
     privateKey: 3a27f63a56e28002f3d35b85aaa716d596039fbc942515f38f1e25d7100eb412
 
+logging:
+  level:
+    org.hibernate.SQL: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+  file:
+    name: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:oauth-server.log}
+
 management:
   endpoints:
     web:
@@ -31,3 +39,6 @@ management:
   info:
     env:
       enabled: true
+  endpoint:
+    logfile:
+      external_file: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:oauth-server.log}
