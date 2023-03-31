@@ -15,6 +15,7 @@ kafka:
   topic:
     usuarios: usuarios
     licencias: licencias
+    clientes: clientes
   servers: localhost:29092, localhost:29093, localhost:29094
 
 management:
