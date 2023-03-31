@@ -27,7 +27,7 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
   file:
-    name: ${LOG.FILE.NAME:cliente-service.log}
+    name: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:cliente-service.log}
 
 management:
   endpoints:
@@ -40,4 +40,4 @@ management:
       enabled: true
   endpoint:
     logfile:
-      external_file: ${LOG.FILE.NAME:cliente-service.log}
+      external_file: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:cliente-service.log}
