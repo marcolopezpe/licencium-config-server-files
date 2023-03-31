@@ -39,4 +39,4 @@ management:
       enabled: true
   endpoint:
     logfile:
-      external_file: ${LOG.FILE.PATH:logs}/${LOG.FILE.NAME:cliente-service.log}
+      external_file: ${LOG.FILE.NAME:cliente-service.log}
