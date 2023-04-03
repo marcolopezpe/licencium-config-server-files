@@ -40,6 +40,9 @@ management:
       exposure:
         include: '*'
       base-path: /actuator
+    health:
+      show-details: always
+      show-components: always
   info:
     env:
       enabled: true
