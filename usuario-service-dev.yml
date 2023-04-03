@@ -30,6 +30,8 @@ logging:
     name: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:usuario-service.log}
 
 management:
+  auditevents:
+    enabled: true
   endpoints:
     web:
       exposure:
@@ -38,6 +40,15 @@ management:
   info:
     env:
       enabled: true
+  health:
+    env:
+      enabled: true
   endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
     logfile:
       external_file: ${LOG.FILE.PATH:./logs}/${LOG.FILE.NAME:usuario-service.log}
