@@ -4,11 +4,17 @@ server:
 encrypt:
   key: ${ENCRYPT.KEY:licencium-secret-key}
 
+db:
+  host: ${DB.HOST:localhost}
+  port: ${DB.PORT:25432}
+  name: '{cipher}9be0102e332c71fe3e0ae62075312e8859bc7745dadb6dbe3e10f98746f6a351'
+  type: '{cipher}5235158b1c9ddff86e5ba7778506778fe5ddc1c79dce8a05c1d69c977c79be22'
+
 spring:
   application:
     name: licencia-service
   datasource:
-    url: '{cipher}12d2d2aebbb916e21f555af5e6367d1973e4a8e23eab3462cfd33980af2df865bad4c6b8488722632d1d7ee436dd5910f226b35775532dc4f1d8f624f4b0d8c3'
+    url: jdbc:${db.type}://${db.host}:${db.port}/${db.name}
     username: '{cipher}a22e6e73f963941d1ff3b5feed48da91c712e82696bd5d9c028945b66c5743b6'
     password: '{cipher}75d2949566d98f7dc1cc2dd395c60e606515f2c7f8e6905cabfcfc5c963b819c'
     driver-class-name: '{cipher}fa6fa36e44df9ba10d99b650f840f437a9b2cf9976a1ff8b1c753acd56d8902370d5dd89c6c1a16278aadd26844ae39b'
@@ -42,7 +48,7 @@ resilience4j:
 
 kafka:
   topic: licencias
-  servers: localhost:29092, localhost:29093, localhost:29094
+  servers: ${KAFKA.SERVERS:localhost:29092,localhost:29093,localhost:29094}
 
 logging:
   level:

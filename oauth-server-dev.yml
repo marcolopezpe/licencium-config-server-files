@@ -4,11 +4,17 @@ server:
 encrypt:
   key: ${ENCRYPT.KEY:licencium-secret-key}
 
+db:
+  host: ${DB.HOST:localhost}
+  port: ${DB.PORT:15432}
+  name: '{cipher}7b6e9c1345d0dcd7153fb010f44c2b8967608b0a4a54e0b823dfade7cbe11732'
+  type: '{cipher}c48c34c58707b16e217ab67a31f5662bdf13c5a81df06106c797b3ab420c9074'
+
 spring:
   application:
     name: oauth-server
   datasource:
-    url: '{cipher}8512df92b5dd3a1b01aa449cb2957cea3e786e742372891ea5b811f36f1da5868a473ec25066afdf11a67251a1d5b248d2f65fe3349194e42f2fca1bf75b43d1'
+    url: jdbc:${db.type}://${db.host}:${db.port}/${db.name}
     username: '{cipher}a22e6e73f963941d1ff3b5feed48da91c712e82696bd5d9c028945b66c5743b6'
     password: '{cipher}d2cb3b3df2613e6a92b7621c51855773a52ce99b3dedc2e14d025cc1fd2b6dee'
     driver-class-name: '{cipher}fa6fa36e44df9ba10d99b650f840f437a9b2cf9976a1ff8b1c753acd56d8902370d5dd89c6c1a16278aadd26844ae39b'

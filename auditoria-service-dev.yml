@@ -4,19 +4,28 @@ server:
 encrypt:
   key: ${ENCRYPT.KEY:licencium-secret-key}
 
+db:
+  host: ${DB.HOST:localhost}
+  port: ${DB.PORT:27017}
+  name: '{cipher}c1479c3e655bdc45390875c48c5d244b2f32086a0b0ec795bf73760fd0dcd055'
+  type: '{cipher}8928f93590333e7d585de39812744b3d0fce1305296d3a48d348ba98454b54a1'
+  username: '{cipher}0f1ddbaeb9af374544b06e4003f68667f92fce75860e0548e0245ca3bd9078d6'
+  password: '{ciper}6fea17c5ea46c1baa2f3477b01bcb118533dca8bb0578c13de9708f99fd2a0dd'
+  params: '{cipher}9f3163b6ae7005b58e359f0af89630a57c6e7a76fbe0a3493e7d62f2e4f5746cf3d7a4b7107f6c43fe6e5ec6169d1ed5'
+
 spring:
   application:
     name: auditoria-service
   data.mongodb:
-    uri: mongodb://root:password1234@localhost:27017/db_audit?authSource=admin
-    database: db_audit
+    uri: ${db.type}://${db.username}:${db.password}@${db.host}:${db.port}/${db.name}?${db.params}
+    database: ${db.name}
 
 kafka:
   topic:
     usuarios: usuarios
     licencias: licencias
     clientes: clientes
-  servers: localhost:29092, localhost:29093, localhost:29094
+  servers: ${KAFKA.SERVERS:localhost:29092,localhost:29093,localhost:29094}
 
 logging:
   file:
